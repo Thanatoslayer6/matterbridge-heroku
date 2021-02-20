@@ -18,11 +18,11 @@ export_env_dir() {
   blacklist_regex=${3:-'^(PATH|GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH)$'}
   if [ -d "$env_dir" ]; then
     for e in $(ls $env_dir); do
-      PORT="$(cat $env_dir/PORT)"
       echo "$e" | grep -E "$whitelist_regex" | grep -qvE "$blacklist_regex" &&
-        port_unexpanded=$(echo "$e=$(cat $env_dir/$e)") &&
-        port_expanded=$(eval "echo $port_unexpanded") &&
-        export $port_expanded
+        escaped=$(echo "$e=$(cat $env_dir/$e)") &&  # 0.0.0.0:\$PORT
+        unescaped=$(sed 's/\\\$/$/g' <<< $escaped)  # 0.0.0.0:$PORT
+        expanded=$(eval "printf $unescaped") &&     # 0.0.0.0:12345
+        export $expanded
       :
     done
   fi
