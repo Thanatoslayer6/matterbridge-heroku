@@ -4,8 +4,7 @@ NoSendJoinPart=true
 
 [whatsapp.11A]
 Number="${WA_NUMBER}"
-#SessionFile="session.gob"
-QrOnWhiteTerminal=true
+SessionFile="session.gob"
 RemoteNickFormat="[{PROTOCOL}] @{NICK}: "
 
 [matrix.11A]
