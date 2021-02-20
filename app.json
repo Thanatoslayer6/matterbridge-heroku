@@ -13,7 +13,7 @@
     "MATTERBRIDGE_VERSION": {
        "description": "Version of matterbridge to download and deploy",
        "value": "1.22.0"
-    }
+    },
     "WA_NUMBER": {
       "description": "WA number",
       "value": "+xxxxxxxxxxxx"
