@@ -14,10 +14,6 @@
        "description": "Version of matterbridge to download and deploy",
        "value": "1.22.0"
     },
-    "WA_NUMBER": {
-      "description": "WA number",
-      "value": "+xxxxxxxxxxxx"
-    },
     "M4_LOGIN": {
       "description": "M4TRIX Login",
       "value": "xxx"
@@ -30,21 +26,13 @@
       "description": "M4TRIX Homeserver",
       "value": "https://xxx.xxx"
     },
-    "TG_TOKEN": {
-      "description": "Telegram Bot Token",
-      "value": "xxx"
-    },
-    "MSG": {
-      "description": "Telegram Message Format",
-      "value": "type"
-    },
-    "WA_CH": {
-      "description": "WA Channel",
-      "value": "JID@g.us"
-    },
     "M4_CH": {
       "description": "M4 Channel",
       "value": "#channel:server"
+    },
+    "H3_URL": {
+      "description": "Heroku URL for Fbridgebot",
+      "value": "https://xxx.xx"
     }
   }
 }
