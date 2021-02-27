@@ -1,41 +1,35 @@
-[general]
-ShowJoinPart=false
-NoSendJoinPart=true
-
-[whatsapp.11A]
-Number="${WA_NUMBER}"
-SessionFile="session.gob"
-RemoteNickFormat="[{PROTOCOL}] @{NICK}: "
-
-[matrix.11A]
-HTMLDisable=true
-Login="${M4_LOGIN}"
-NoHomeServerSuffix=true
-Password="${M4_PASS}"
-PrefixMessagesWithNick=false
+[matrix.mymatrix]
+#Server is your homeserver (eg https://matrix.org)
 Server="${M4_HS}"
-UseUserName=false
 
-[telegram.11A]
-Token="${TG_TOKEN}"
-RemoteNickFormat="({PROTOCOL}) <{NICK}> "
-MessageFormat="${MSG}"
-QuoteFormat="{MESSAGE} (re @{QUOTENICK}: {QUOTEMESSAGE})"
-DisableWebPagePreview=false
-UseFirstName=true
+#login/pass of your bot.
+#Use a dedicated user for this and not your own!
+#Messages sent from this user will not be relayed to avoid loops.
+Login="${M4_LOGIN}"
+Password="${M4_PASS}"
+# recieves only the nickname of the user in facebook to matrix and not the protocol
+RemoteNickFormat="<{NICK}> "
 
+#Whether to send the homeserver suffix. eg ":matrix.org" in @username:matrix.org
+#to other bridges, or only send "username".(true only sends username)
+#OPTIONAL (default false)
+NoHomeServerSuffix=true
+
+[api.myapi]
+BindAddress="${H3_URL}:4242"
+Buffer=1000
+RemoteNickFormat=""
+
+
+## This is the default FB gateway. All facebook measseages will be sendt here
 [[gateway]]
-name="11A"
+name="FBgateway"
 enable=true
 
 [[gateway.inout]]
-account="whatsapp.11A"
-channel="${WA_CH}"
-
-[[gateway.inout]]
-account="matrix.11A"
+account="matrix.mymatrix"
 channel="${M4_CH}"
 
 [[gateway.inout]]
-account="telegram.11A"
-channel="${TG_CH}"
+account="api.myapi"
+channel="api"
