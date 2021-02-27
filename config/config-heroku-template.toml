@@ -16,7 +16,7 @@ RemoteNickFormat="<{NICK}> "
 NoHomeServerSuffix=true
 
 [api.myapi]
-BindAddress="${H3_URL}:17995"
+BindAddress="${H3_URL}"
 Buffer=1000
 RemoteNickFormat=""
 
